@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Grok Desk</title>
-  <link rel="manifest" href="manifest.json">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="stylesheet" href="app.css">
+  <style>
+    body { background:#000; color:#fff; font-family:-apple-system,sans-serif; padding:40px; }
+    .big { font-size:48px; font-weight:600; }
+  </style>
 </head>
 <body>
-  <div id="app">
-    <div style="padding:40px;color:#fff;font-family:sans-serif">
-      Loading Grok Desk…
-    </div>
-    <!-- rest of your screens stay the same -->
-  </div>
-  <nav class="tabbar">
-    <button data-screen="home">Home</button>
-    <button data-screen="agents">Agents</button>
-    <button data-screen="activity">Activity</button>
-    <button data-screen="account">Account</button>
-  </nav>
-  <script src="app.js"></script>
+  <div class="big">Grok Desk</div>
+  <p>If you see this, the server is working.</p>
+  <p id="status">Loading data…</p>
+  <script>
+    const DATA_PATH = new URLSearchParams(location.hash.slice(1)).get("d") || "mxyBeeDto79uuE75jmEgAl74p8XYZbPK89u4FgO_nsc";
+    fetch("/d/" + DATA_PATH + "/state.json")
+      .then(r => r.json())
+      .then(s => {
+        document.getElementById("status").textContent = "Balance: $" + s.balance + " · " + s.mode;
+      })
+      .catch(e => {
+        document.getElementById("status").textContent = "Data error: " + e;
+      });
+  </script>
 </body>
 </html>

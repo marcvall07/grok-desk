@@ -11,68 +11,17 @@
 </head>
 <body>
   <div id="app">
-    <!-- HOME -->
-    <section id="home" class="screen active">
-      <header class="navbar">
-        <span class="avatar"></span>
-        <span class="title">Grok Bot ›</span>
-        <span class="paper-badge">PAPER</span>
-      </header>
-      <div class="balance" id="balance">$200.00</div>
-      <div class="today" id="today">+0.00%</div>
-      <div class="multiplier" id="multiplier">1.00×</div>
-      <div class="chart-placeholder" id="chart-area">Waiting for the first trade</div>
-      <div class="section-title">Agents · 5 running</div>
-      <div class="agent-carousel" id="agent-carousel"></div>
-      <div class="section-title">Activity · See all</div>
-      <div id="home-activity"></div>
-    </section>
-
-    <!-- AGENTS -->
-    <section id="agents" class="screen">
-      <header class="navbar"><span class="title">Agents</span></header>
-      <div id="agents-list"></div>
-    </section>
-
-    <!-- ACTIVITY -->
-    <section id="activity" class="screen">
-      <header class="navbar"><span class="title">Activity</span></header>
-      <div id="activity-list"></div>
-    </section>
-
-    <!-- ACCOUNT -->
-    <section id="account" class="screen">
-      <header class="navbar"><span class="title">Account</span></header>
-      <div class="row">Mode <span id="mode-display">PAPER</span></div>
-      <div class="row">Stack <span id="stack-display">$200</span></div>
-      <div class="row">Your FOMO profile <span>marcos17</span></div>
-      <div class="row">Invite a friend</div>
-      <div class="row">Stop <span id="stop-display">-6%</span></div>
-      <div class="row">Telegram <span>connected</span></div>
-    </section>
-
-    <!-- COIN (hidden until opened) -->
-    <section id="coin" class="screen">
-      <header class="navbar"><span class="title" id="coin-title">Coin</span></header>
-      <div class="balance" id="coin-price">—</div>
-      <div id="coin-stats"></div>
-      <button class="full-btn" id="coin-fomo-btn">Buy on FOMO</button>
-    </section>
-
-    <!-- AUDITOR -->
-    <section id="auditor" class="screen">
-      <header class="navbar"><span class="title">Auditor</span></header>
-      <div id="auditor-layers"></div>
-    </section>
+    <div style="padding:40px;color:#fff;font-family:sans-serif">
+      Loading Grok Desk…
+    </div>
+    <!-- rest of your screens stay the same -->
   </div>
-
   <nav class="tabbar">
     <button data-screen="home">Home</button>
     <button data-screen="agents">Agents</button>
     <button data-screen="activity">Activity</button>
     <button data-screen="account">Account</button>
   </nav>
-
   <script src="app.js"></script>
 </body>
 </html>

@@ -42,12 +42,16 @@ async def on_migration(msg):
     write_json("state.json", state)
 
 async def handle_index(request):
-    return web.FileResponse(WEB_DIR / "index.html")
+    resp = web.FileResponse(WEB_DIR / "index.html")
+    resp.content_type = "text/html"
+    return resp
 
 async def start_web():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     app = web.Application()
+    # explicit HTML route first
     app.router.add_get("/", handle_index)
+    app.router.add_get("/index.html", handle_index)
     app.router.add_static("/d/", OUT_DIR.parent, show_index=False)
     if WEB_DIR.exists():
         app.router.add_static("/", WEB_DIR, show_index=False)
